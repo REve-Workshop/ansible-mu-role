@@ -13,7 +13,7 @@
   application.
 
   This role expects:
-  - All stumpwm dependencies to be present on the system.
+  - All mu dependencies to be present on the system.
   - The =builder_user= and =builder_group= to be setup correctly on
     the target.
   - The target to have an access to the repositories containing the
