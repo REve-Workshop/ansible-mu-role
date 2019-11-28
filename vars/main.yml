@@ -1,4 +1,4 @@
 repository: https://github.com/djcb/mu.git
-working_dir: /home/example/.local/share
+working_dir: /usr/local/src/mu
 builder_user: builder
 builder_group: builder

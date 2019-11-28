@@ -1,0 +1,27 @@
+- name: Set working directory ownership
+  file:
+    path: "{{ working_dir }}"
+    state: directory
+    recurse: True
+    owner: "{{ builder_user }}"
+    group: "{{ builder_group }}"
+- name: Build mu
+  block:
+    - name: Build configure script
+      command: './autogen.sh'
+      args:
+        chdir: "{{ working_dir }}"
+    - name: Configure mu
+      command: './configure'
+      args:
+        chdir: "{{ working_dir }}"
+    - name: Compiling application
+      command: 'make'
+      args:
+        chdir: "{{ working_dir }}"
+  become: True
+  become_user: "{{ builder_user }}"
+- name: Install mu
+  command: 'make install'
+  args:
+    chdir: "{{ working_dir }}"

@@ -1,10 +1,23 @@
-#+TITLE: Mu Ansible Role
+#+TITLE: Mu Installation Ansible Role
 
 * WARNING
   :PROPERTIES:
   :ID:       4ff7444d-0f05-47c7-a7ed-dd20caef6f0c
   :END:
   Do not rely on the code blindly, it as not been tested yet.
+* Introduction
+  :PROPERTIES:
+  :ID:       d9d428ec-beeb-4944-a569-5d8be547998d
+  :END:
+  This Ansible role allows to install or update an existing mu
+  application.
+
+  This role expects:
+  - All stumpwm dependencies to be present on the system.
+  - The =builder_user= and =builder_group= to be setup correctly on
+    the target.
+  - The target to have an access to the repositories containing the
+    sources of mu.
 * Installation
   :PROPERTIES:
   :ID:       5a580a62-17ad-457e-8501-9c4a3d206536
@@ -16,10 +29,10 @@
   :ID:       69e9acbd-bc6c-454e-b47f-d4d8ddbca452
   :END:
   The following variables can be overloaded in your playbook:
-  - =repository=, the repository of bashmount. [Default:
+  - =repository=, the repository of mu. [Default:
     https://github.com/djcb/mu.git]
-  - =working_dir=, the working directory where to clone the
-    repository. [Default: /usr/local/src]
+  - =working_dir=, the working directory where to clone/checkout the
+    repository. [Default: /usr/local/src/mu]
   - =builder_user=: The user to impersonate to build the application. [Default: builder].
   - =builder_group=: The primary group of the user to impersonate to
     build the application. [Default: builder].
@@ -39,5 +52,5 @@
              name: mu
            vars:
              repository: https://github.com/montaropdf/my-mu-fork.git
-             working_dir: /var/lib/src/git_repos
+             working_dir: /var/lib/src/git_repos/mu
    #+end_example
