@@ -1,4 +1,4 @@
-#+TITLE: Mu Installation Ansible Role
+#+TITLE: Ansible Role for Mu Installation
 
 * WARNING
   :PROPERTIES:
@@ -9,8 +9,7 @@
   :PROPERTIES:
   :ID:       d9d428ec-beeb-4944-a569-5d8be547998d
   :END:
-  This Ansible role allows to install or update an existing mu
-  application.
+  This Ansible role allows to install or update the mu application.
 
   This role expects:
   - All mu dependencies to be present on the system.
@@ -32,12 +31,12 @@
   - =repository=, the repository of mu. [Default:
     https://github.com/djcb/mu.git]
   - =working_dir=, the working directory where to clone/checkout the
-    repository. [Default: /usr/local/src/mu]
+    repository. [Default: =/usr/local/src/mu= ]
   - =builder_user=: The user to impersonate to build the application. [Default: builder].
   - =builder_group=: The primary group of the user to impersonate to
     build the application. [Default: builder].
 
-  The role is to be execute as the root user on the target hosts.
+  The role is to be executed as the root user on the target hosts.
 ** Example playbook
    :PROPERTIES:
    :ID:       c31a52f4-ce4d-4dcd-8078-2d0731f849ad
